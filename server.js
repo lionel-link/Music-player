@@ -38,9 +38,23 @@ app.get('/artists', (req, res) => {
 
 app.post('/signup', (req, res) => {
     user = req.body
-    user.token = ""
-    users.push(user)
-    writeFile();
+    result = {}
+    if (user.nom == "" || user.prenom == "" || user.email == "" || user.password == "") {
+        result.error = true
+    } else {
+        existuser = users.find(x => x.nom == user.nom || x.email == user.email)
+        if (existuser) {
+            result.message = "Cet utilisateur existe déjà"
+        } else {
+            user.token = ""
+            id = users[users.length - 1].id + 1
+            userAdd = { id: id, nom: user.nom, ...user }
+            users.push(userAdd)
+            writeFile();
+            result.error = false
+        }
+    }
+    res.json(result)
 })
 
 app.post('/login', (req, res) => {
@@ -69,6 +83,20 @@ app.post('/logged', (req, res) => {
     res.json(result)
 })
 
+app.post('/logout', (req, res) => {
+    id = req.body.id
+    result = {}
+    user = users.find(x => x.id == id)
+    if (user) {
+        user.token = ''
+        writeFile()
+        result.error = false
+    } else {
+        result.error = true
+    }
+    res.json(result)
+})
+
 app.post('/search', (req, res) => {
     search = req.body.search
     result = artists.find((x) => x.name.toLowerCase().startsWith(search))
@@ -81,7 +109,7 @@ app.post('/like', (req, res) => {
     result = {}
     user = users.find((x) => x.id == user)
     if (user) {
-        user.likes = like
+        user.likes.push(like)
         writeFile()
         result.like = true
     } else {
@@ -91,16 +119,42 @@ app.post('/like', (req, res) => {
 })
 
 app.post('/playlist', (req, res) => {
+    id = req.body.id
+    result = {}
+    user = users.find(x => x.id == id)
+    if (user) {
+        playlist = user.playlists
+        result.playlist = playlist
+        result.error = false
+    } else {
+        result.error = true
+    }
+    res.json(result)
+})
+
+app.post('/playlist/add', (req, res) => {
     playlist = req.body.playlist
     user = req.body.id
     result = {}
     user = users.find((x) => x.id == user)
     if (user) {
-        user.playlists = playlist
-        writeFile()
-        result.playlist = true
-    } else {
-        result.playlist = false
+        if (user.playlists != '') {
+            user.playlists.forEach(x => {
+                if (x.title == playlist.title) {
+                    result.message = 'cette playlist existe déjà'
+                } else {
+                    id = user.playlists[user.playlists.length - 1].id + 1
+                    playlistAdd = { id: id, title: playlist.title, ...playlist }
+                    user.playlists.push(playlistAdd)
+                    writeFile()
+                    result.error = false
+                }
+            })
+        } else {
+            user.playlists.push(playlist)
+            writeFile()
+            result.error = false
+        }
     }
     res.json(result)
 })
@@ -125,7 +179,6 @@ app.get('/top', (req, res) => {
                         })
                     }
                 });
-                console.dir(top.albums)
             })
         }
     });
