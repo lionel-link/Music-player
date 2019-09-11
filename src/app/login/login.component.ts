@@ -24,6 +24,15 @@ export class LoginComponent implements OnInit {
   }
 
   logIn = () => {
+    this.data.postApi('login',{login: this.loginForm.value.login, password: this.loginForm.value.password}).subscribe((res:any)=>{
+      if (res){
+        localStorage.setItem('id', res.id)
+        localStorage.setItem('token', res.token)
+      }
+      else{
+        alert("Erreur connection")
+      }
+    })
   }
 
 }

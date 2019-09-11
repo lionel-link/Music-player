@@ -64,6 +64,7 @@ app.post('/login', (req, res) => {
     if (user) {
         result.error = false
         result.token = token()
+        result.id = user.id
         user.token = result.token
     } else {
         result.error = true
