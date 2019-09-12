@@ -49,6 +49,7 @@ const mesRoutes = [
     HttpClientModule,
   ],
   providers: [],
+  entryComponents: [LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -35,4 +35,8 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  hide(){
+    this.data.popUp.next(true)
+  }
+
 }
