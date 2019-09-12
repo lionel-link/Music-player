@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ComponentFactoryResolver } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-item-user',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemUserComponent implements OnInit {
 
-  constructor() { }
+  constructor(private resolver:ComponentFactoryResolver, router: Router) { }
 
   ngOnInit() {
   }
