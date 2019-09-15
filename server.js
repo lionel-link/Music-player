@@ -66,6 +66,8 @@ app.post('/login', (req, res) => {
         result.token = token()
         result.id = user.id
         user.token = result.token
+        result.nom = user.nom
+        result.prenom = user.prenom
     } else {
         result.error = true
     }
@@ -78,6 +80,8 @@ app.post('/logged', (req, res) => {
     user = users.find((x) => x.id == userTryLog.id && x.token == userTryLog.token)
     if (user) {
         result.error = false
+        result.nom = user.nom
+        result.prenom = user.prenom
     } else {
         result.error = true
     }

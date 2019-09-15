@@ -1,9 +1,9 @@
-<form>
-    <div class="form-group" [formGroup]="loginForm" (ngSubmit)="logIn()">
-        <input type="email" class="form-control" name="email" placeholder="Entrer votre email">
+<form [formGroup]="loginForm" (ngSubmit)="logIn()">
+    <div class="form-group">
+        <input type="email" class="form-control" formControlName="email" placeholder="Entrer votre email">
     </div>
     <div class="form-group">
-        <input type="password" class="form-control" name="Password" placeholder="Entrer votre mot de passe">
+        <input type="password" class="form-control" formControlName="password" placeholder="Entrer votre mot de passe">
     </div>
     <button type="submit" class="btn btn-primary mr-3">Connecter</button>
     <button class="btn btn-secondary" (click)="hide()">annuler</button>
