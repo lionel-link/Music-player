@@ -90,6 +90,7 @@ app.post('/logged', (req, res) => {
 })
 
 app.post('/logout', (req, res) => {
+    console.dir(req.body)
     id = req.body.id
     result = {}
     user = users.find(x => x.id == id)

@@ -20,6 +20,7 @@ export class DataService {
   }
 
   popUp = new Subject<any>();
-  logIn = new Subject<any>();
+  userName = new Subject<any>();
+  logged = new Subject<any>();
 
 }

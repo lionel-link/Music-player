@@ -1,4 +1,4 @@
-<div class="menu-user" *ngIf="logged.error; else connected">
+<div class="menu-user" *ngIf="logged == false; else connected">
     <a class=" menu-user mr-4" (click)="logIn()">Log In</a>
     <a>Sign Up</a>
     <div class="pop-menu-user">
@@ -7,8 +7,8 @@
 </div>
 <ng-template #connected>
     <div class="row">
-        <div class="col-6">{{logged.nom}}</div>
-        <div class="col-6">{{logged.prenom}}</div>
+        <div class="col-6">{{userName.nom}}</div>
+        <div class="col-6">{{userName.prenom}}</div>
     </div>
-    <div class="row">Log Out</div>
+    <div class="row" (click)="logOut()">Log Out</div>
 </ng-template>

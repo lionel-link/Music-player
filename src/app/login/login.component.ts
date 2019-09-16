@@ -31,7 +31,8 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', res.token)
         this.userName.nom = res.nom
         this.userName.prenom = res.prenom
-        this.data.logIn.next(this.userName)
+        this.data.userName.next(this.userName)
+        this.data.logged.next(true)
       }
       else{
         alert("Erreur connection")
