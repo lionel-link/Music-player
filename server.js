@@ -63,11 +63,12 @@ app.post('/login', (req, res) => {
     user = users.find((x) => x.email == userTryLog.email && x.password == userTryLog.password)
     if (user) {
         result.error = false
-        result.token = token()
+        user.token = token()
         result.id = user.id
-        user.token = result.token
+        result.token = user.token
         result.nom = user.nom
         result.prenom = user.prenom
+        writeFile();
     } else {
         result.error = true
     }

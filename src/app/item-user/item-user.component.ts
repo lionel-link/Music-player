@@ -9,24 +9,26 @@ import { DataService } from '../data.service';
   styleUrls: ['./item-user.component.css']
 })
 export class ItemUserComponent implements OnInit {
-  logged
-  @ViewChild('contentPopUp',{static:false, read : ViewContainerRef}) contentPopUp: ViewContainerRef
+  logged = {error:true}
+  @ViewChild('contentPopUp', { static: false, read: ViewContainerRef }) contentPopUp: ViewContainerRef
 
-  constructor(private data: DataService, private viewContainerRef :ViewContainerRef,private resolver:ComponentFactoryResolver, router: Router) { }
+  constructor(private data: DataService, private viewContainerRef: ViewContainerRef, private resolver: ComponentFactoryResolver, router: Router) { }
 
 
   ngOnInit() {
-    this.data.popUp.subscribe(x=>this.contentPopUp.clear())
-    this.data.logIn.subscribe(x=>this.logged = x)
+    this.data.popUp.subscribe(x => this.contentPopUp.clear())
+    this.data.logIn.subscribe(x => this.logged = x)
     let id = localStorage.getItem('id')
     let token = localStorage.getItem('token')
-    this.data.postApi('logged', {id:id, token:token}).subscribe((res:any)=>{
-      this.logged = res
-      console.dir( this.logged)
+    this.data.postApi('logged', { id: id, token: token }).subscribe((res: any) => {
+      console.dir(res)
+      if (res.error = false) {
+        this.logged = res
+      }
     })
   }
 
-  logIn = ()=>{
+  logIn = () => {
     this.contentPopUp.clear()
     const factory = this.resolver.resolveComponentFactory(LoginComponent)
     const component = this.contentPopUp.createComponent(factory)

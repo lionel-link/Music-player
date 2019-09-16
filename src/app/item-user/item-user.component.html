@@ -1,4 +1,4 @@
-<div class="menu-user" *ngIf="!logged; else connected">
+<div class="menu-user" *ngIf="logged.error; else connected">
     <a class=" menu-user mr-4" (click)="logIn()">Log In</a>
     <a>Sign Up</a>
     <div class="pop-menu-user">
