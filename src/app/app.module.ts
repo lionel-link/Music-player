@@ -49,7 +49,7 @@ const mesRoutes = [
     HttpClientModule,
   ],
   providers: [],
-  entryComponents: [LoginComponent],
+  entryComponents: [LoginComponent, SingupComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

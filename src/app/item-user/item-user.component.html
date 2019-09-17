@@ -1,6 +1,6 @@
 <div class="menu-user" *ngIf="logged == false; else connected">
     <a class=" menu-user mr-4" (click)="logIn()">Log In</a>
-    <a>Sign Up</a>
+    <a (click)="signUp()">Sign Up</a>
     <div class="pop-menu-user">
         <ng-container #contentPopUp></ng-container>
     </div>

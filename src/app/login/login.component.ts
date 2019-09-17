@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
   }
 
   hide(){
-    this.data.popUp.next(this.userName)
+    this.data.popUp.next(true)
   }
 
 }

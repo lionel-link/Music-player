@@ -2,6 +2,7 @@ import { Component, OnInit, ComponentFactoryResolver, ViewContainerRef, ViewChil
 import { Router } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
 import { DataService } from '../data.service';
+import { SingupComponent } from '../singup/singup.component';
 
 @Component({
   selector: 'app-item-user',
@@ -28,10 +29,15 @@ export class ItemUserComponent implements OnInit {
     const component = this.contentPopUp.createComponent(factory)
   }
 
+  signUp () {
+    this.contentPopUp.clear()
+    const factory = this.resolver.resolveComponentFactory(SingupComponent)
+    const component = this.contentPopUp.createComponent(factory)
+  }
+
   logOut() {
     let id = localStorage.getItem('id')
     this.data.postApi('logout', {"id":id}).subscribe((res:any)=>{
-      console.dir(res)
       if (res.error == false){
         localStorage.setItem('id',"")
         localStorage.setItem('token',"")
