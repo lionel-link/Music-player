@@ -31,7 +31,7 @@ const writeFile = () => {
 app.use(express.static(__dirname));
 
 
-app.get('/artists', (req, res) => {
+app.get('/stream', (req, res) => {
     res.json(artists);
 })
 

@@ -1,0 +1,7 @@
+#search .input-group.col-5 {
+    color: #495057;
+    background-color: black !important;
+    border: none;
+    position: relative;
+    left: -35px;
+}

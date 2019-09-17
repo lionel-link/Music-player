@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-stream',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StreamComponent implements OnInit {
 
-  constructor() { }
+  catalog
+
+  constructor(private data:DataService) { }
 
   ngOnInit() {
+    this.data.getApi('stream').subscribe((res:any)=>{
+      console.dir(res)
+      this.catalog = res
+    })
   }
 
 }

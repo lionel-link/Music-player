@@ -1,1 +1,11 @@
-<p>stream works!</p>
+<div class="col">
+    <div class="row">
+        <div class="col-3" *ngFor=" let artiste of catalog">
+            <div class="row">
+                <a href="#"><img src="{{artiste.cover}}" width="200px" alt=""></a>
+            </div>
+            <div class="row">{{artiste.name}}</div>
+            <div class="row"></div>
+        </div>
+    </div>
+</div>
