@@ -8,3 +8,9 @@
 .sidebar {
     background-color: #222326;
 }
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

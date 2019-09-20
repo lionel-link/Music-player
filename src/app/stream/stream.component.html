@@ -1,20 +1,25 @@
+<div class="col">
         <div class="row">
-                <div class="col-3 mb-5" *ngFor=" let artiste of catalog">
-                    <a href="#"><img src="{{artiste.cover}}" width="150px" alt=""></a>
-                    <div class="row">{{artiste.name}}</div>
-                </div>
+                <h4>Artiste</h4>
             </div>
-            <div class="row">
-                <h4>Album</h4>
+        <div class="row">
+            <div class="col-3" *ngFor=" let artiste of catalog">
+                <div class="row"><a href="#"><img src="{{artiste.cover}}" width="200px" alt=""></a></div>
+                <div class="row">{{artiste.name}}</div>
             </div>
-            
-            <div class="row">
-                <ng-container *ngFor=" let artiste of catalog">
-                    <div class="col-3 mb-5" *ngFor=" let album of artiste.albums">
-                        <div class="row">
-                            <a href="#"><img src="{{album.cover}}" width="90px" alt=""></a>
-                        </div>
-                        <div class="row">{{album.title}}</div>
+        </div>
+        <div class="row">
+            <h4>Album</h4>
+        </div>
+        
+        <div class="row">
+            <ng-container *ngFor=" let artiste of catalog">
+                <div class="col-3" *ngFor=" let album of artiste.albums">
+                    <div class="row">
+                        <a href="#"><img src="{{album.cover}}" width="90px" alt=""></a>
                     </div>
-                </ng-container>
-            </div>
+                    <div class="row">{{album.title}}</div>
+                </div>
+            </ng-container>
+        </div>
+</div>
