@@ -14,8 +14,6 @@ export class ItemMenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.dir(this.title)
-    console.dir(this.icon)
   }
 
 }

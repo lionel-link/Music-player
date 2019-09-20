@@ -1,13 +1,17 @@
-<div class="menu-user" *ngIf="logged == false; else connected">
-    <a class=" menu-user mr-4" (click)="logIn()">Log In</a>
-    <a (click)="signUp()">Sign Up</a>
-    <div class="pop-menu-user">
-        <ng-container #contentPopUp></ng-container>
+<div class=" row menu-user" *ngIf="logged == false; else connected">
+        <div class="col-5">
+            <a class="btn btn-green" (click)="logIn()">Login</a>
+        </div>
+        <div class="col-7">
+            <a class="btn btn-white" (click)="signUp()">Sign Up</a>
+        </div>
+    <div class="row pop-menu-user mt-3">
+        <div class="col"><ng-container #contentPopUp></ng-container></div>
     </div>
 </div>
 <ng-template #connected>
     <div class="row">
-        <div class="col-6">{{userName.nom}}</div>
+        <div class="btn btn-green col-6">{{userName.nom}}</div>
         <div class="col-6">{{userName.prenom}}</div>
     </div>
     <div class="row" (click)="logOut()">Log Out</div>

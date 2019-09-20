@@ -14,8 +14,8 @@ export class StreamComponent implements OnInit {
 
   ngOnInit() {
     this.data.getApi('stream').subscribe((res:any)=>{
-      console.dir(res)
       this.catalog = res
+      console.dir(this.catalog)
     })
   }
 
