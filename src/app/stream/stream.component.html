@@ -1,25 +1,45 @@
-<div class="col">
-        <div class="row">
-                <h4>Artiste</h4>
-            </div>
-        <div class="row">
-            <div class="col-3" *ngFor=" let artiste of catalog">
-                <div class="row"><a href="#"><img src="{{artiste.cover}}" width="200px" alt=""></a></div>
-                <div class="row">{{artiste.name}}</div>
+<div class="col mb-stream">
+    <div class="row">
+        <h4 class="ml-4">Artiste</h4>
+    </div>
+    <div class="row justify-content-centers">
+        <div class="col-3" *ngFor=" let artiste of catalog">
+            <div class="card-song">
+                <img class="card-song-img" src="{{artiste.cover}}" alt="">
+                <div class="card-song-body">
+                    <div class="artist-name">{{artiste.name}}</div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <h4>Album</h4>
-        </div>
-        
-        <div class="row">
-            <ng-container *ngFor=" let artiste of catalog">
-                <div class="col-3" *ngFor=" let album of artiste.albums">
-                    <div class="row">
-                        <a href="#"><img src="{{album.cover}}" width="90px" alt=""></a>
+    </div>
+    <div class="row">
+        <h4 class="ml-4">Album</h4>
+    </div>
+
+    <div class="row justify-content-centers">
+        <ng-container *ngFor=" let artiste of catalog">
+            <div class="col-3" *ngFor=" let album of artiste.albums">
+                <div class="card-song pointer">
+                    <img class="card-song-img" src="{{album.cover}}" alt="">
+                    <div class="card-song-body">
+                        <div class="artist-album">{{album.title}}</div>
+                        <div class="artist-name">{{artiste.name}}</div>
                     </div>
-                    <div class="row">{{album.title}}</div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <div class="row">
+        <h4 class="ml-4">Songs</h4>
+    </div>
+    <div class="row justify-content-centers">
+        <ng-container *ngFor=" let artiste of catalog">
+            <ng-container *ngFor=" let album of artiste.albums">
+                <div class="col-3" *ngFor=" let song of album.songs">
+                    <app-track [song]="song" [album]="album" [artiste]="artiste"></app-track>
                 </div>
             </ng-container>
-        </div>
+        </ng-container>
+    </div>
+
 </div>

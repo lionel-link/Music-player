@@ -1,0 +1,35 @@
+.container-progress-bar {
+    width: 100%;
+    padding-top: 5px;
+    position: fixed;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 5px;
+    position: absolute;
+    background-color: rgba(243, 241, 241, 0.239);
+    margin-bottom: 40px;
+}
+
+.progress-bar-avancement {
+    width: 1%;
+    position: absolute;
+    left: 0px;
+    background-color: white;
+    height: 5px;
+}
+
+.progress-bar-avancement:hover {
+    background-color: #1db954;
+}
+
+.button-progress-bar {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    background-color: white;
+    top: 0;
+    left: 0;
+}

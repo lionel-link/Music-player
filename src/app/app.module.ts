@@ -17,6 +17,8 @@ import { TopComponent } from './top/top.component';
 import { StreamComponent } from './stream/stream.component';
 import { LikeComponent } from './like/like.component';
 import { PlaylistComponent } from './playlist/playlist.component';
+import { MusicProgressComponent } from './music-progress/music-progress.component';
+import { TrackComponent } from './track/track.component';
 
 const mesRoutes = [
   { path: '', component: StreamComponent },
@@ -38,7 +40,9 @@ const mesRoutes = [
     StreamComponent,
     TopComponent,
     LikeComponent,
-    PlaylistComponent
+    PlaylistComponent,
+    MusicProgressComponent,
+    TrackComponent
   ],
   imports: [
     BrowserModule,

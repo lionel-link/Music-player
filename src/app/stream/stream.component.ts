@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { MusicService } from '../music.service';
 
 @Component({
   selector: 'app-stream',
@@ -15,7 +16,6 @@ export class StreamComponent implements OnInit {
   ngOnInit() {
     this.data.getApi('stream').subscribe((res:any)=>{
       this.catalog = res
-      console.dir(this.catalog)
     })
   }
 

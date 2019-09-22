@@ -1,6 +1,31 @@
-/* .player{
+.player {
     position: fixed;
-    background-color: rgb(39, 37, 37);
-    height: 80px;
+    background-color: black;
     color: white
-} */
+}
+
+.lecteur-artist-item {
+    font-size: 10px;
+}
+
+.no-space-title {
+    margin: 0;
+    padding: 0;
+}
+
+.card-lecteur {
+    width: 100%;
+    padding: 5px;
+}
+
+.volume {
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    margin-top: 10px;
+}
+
+.lecteur-artist-item {
+    position: relative;
+    right: 45px;
+}
